@@ -17,5 +17,8 @@ This implies
 ## Maven 3.8.6
 
 
+# Browse API via
+http://localhost:8080/swagger-ui/index.html
+
 
 

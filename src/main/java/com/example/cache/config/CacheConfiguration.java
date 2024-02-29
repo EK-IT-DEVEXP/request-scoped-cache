@@ -20,4 +20,5 @@ public class CacheConfiguration {
             cacheManager.hashCode());
         return cacheManager;
     }
+
 }

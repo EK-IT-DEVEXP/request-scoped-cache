@@ -1,4 +1,4 @@
-package com.example.cache.web;
+package com.example.cache.web.example;
 
 import com.example.cache.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -14,6 +14,15 @@ public class ExampleServiceA {
 
     public void execute(String employeeNumber, String firstName, String lastName) {
         String employeeName = employeeService.getEmployeeName(employeeNumber);
+
+        //all these hits would be replied from cache
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
+        employeeService.getEmployeeName(employeeNumber);
         if(employeeName.equals(firstName + " " + lastName)) {
             addToNoMiddleNameListener(employeeNumber);
         }

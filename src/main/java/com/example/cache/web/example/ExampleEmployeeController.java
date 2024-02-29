@@ -1,5 +1,6 @@
-package com.example.cache.web;
+package com.example.cache.web.example;
 
+import com.example.cache.web.example.resource.Employee;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/example")
 @AllArgsConstructor
-public class ExampleController {
+public class ExampleEmployeeController {
 
     private final ExampleServiceB exampleServiceB;
 
     @GetMapping("/employee/{employeeNumber}")
-    public String getExample(@PathVariable String employeeNumber) {
+    public Employee getExample(@PathVariable String employeeNumber) {
         log.info("Calling getExample for employee number: {}", employeeNumber);
-        return exampleServiceB.execute(employeeNumber);
+        String name = exampleServiceB.execute(employeeNumber);
+        return new Employee(employeeNumber, name);
     }
 
 }
